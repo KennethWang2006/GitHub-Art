@@ -1,0 +1,35 @@
+let x = 0;
+let y = 0;
+function setup() {
+  createCanvas(windowWidth,windowHeight );
+  background(0);
+  
+
+
+}
+
+function draw() {
+  let BaseR = random(0,225)
+  let BaseG = random(0,225)
+  let BaseB = random(0,255)
+  stroke(BaseR, BaseG, BaseB)
+  strokeWeight(20)
+  if(random(1)<1){
+    line(x,y,x + 50,y + 50);
+  } else{
+    line(x,y + 50,x + 50,y);
+  }
+  x = x+50;
+  if (x > width){
+    x = 0;
+    y = y + 50
+    
+
+
+    
+
+    
+
+    
+  }
+}
