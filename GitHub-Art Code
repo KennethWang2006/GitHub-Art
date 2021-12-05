@@ -1,25 +1,34 @@
-let x = 0;
-let y = 0;
+
 function setup() {
-  createCanvas(windowWidth,windowHeight );
-  background(0);
-}
+  let x = 0;
+  let y = 0;
+  let CanvasX = 400
+  let CanvasY = 400
+  let numHorLines = CanvasX/50+1
+  let numVerLines = CanvasY/50+1
+  createCanvas(CanvasX,CanvasY);
+  background(0)
+  let BaseR = random(0,200)
+  let BaseG = random(0,200)
+  let BaseB = random(0,200)
+  stroke(BaseR,BaseG,BaseB) 
 
-function draw() {
-  let BaseR = random(20,70)
-  let BaseG = random(150, 250)
-  let BaseB = random(100,250)
-
-  stroke(BaseR,BaseG,BaseB)
-  strokeWeight(20)
-  if(random(1)<1){
-    line(x,y,x + 50,y + 50);
-  } else{
-    line(x,y + 50,x + 50,y);
-  }
-  x = x+50;
-  if (x > width){
-    x = 0;
-    y = y + 50   
+for (j=0;j<numVerLines;j++)
+  for(i=0;i<numHorLines;i++){
+    strokeWeight(20)
+    if(random(1)<1){
+      line(x,y,x + 50,y + 50)
+    } else{
+      line(x,y + 50,x + 50,y)
+    }
+    x = x+50;
+    stroke(BaseR,BaseG,BaseB)
+    if (x > CanvasX){
+      x = 0;
+      y = y + 50 
+      BaseR = BaseR + random(10,25)
+      BaseG = BaseG + random(10,25)
+      BaseB = BaseB + random(10,55) 
+    }
   }
 }
